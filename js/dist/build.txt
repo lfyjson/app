@@ -1,9 +1,0 @@
-
-main.js
-----------------
-method.js
-observer.js
-calendar.js
-calendar-class.js
-json2.js
-main.js
