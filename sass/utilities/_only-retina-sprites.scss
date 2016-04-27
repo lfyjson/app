@@ -1,0 +1,26 @@
+@import "compass/utilities/sprites";         // Include compass sprite helpers
+@import "compass/css3/background-size";      // Include helper to calc background size
+
+@mixin retina-sprite($name, $hover: false, $active: false, $offsetLeft: 0, $offsetTop: 0) {
+  @include _retina-sprite($name, $sprites, $hover, $active, $offsetLeft, $offsetTop);
+}
+
+@mixin _retina-sprite($name, $sprites, $hover, $active, $offsetLeft, $offsetTop, $dimensions: true, $pad: 0) {  
+  @if $dimensions == true {
+    height: ceil(image-height(sprite-file($sprites, $name)) / 2);
+    width: ceil(image-width(sprite-file($sprites, $name)) / 2);
+  }
+  $pos: sprite-position($sprites, $name, -$pad * 2, -$pad * 2);
+  background-image: sprite-url($sprites);
+  background-position: floor((nth($pos, 1) / 2) + $offsetLeft) floor((nth($pos, 2) / 2) + $offsetTop);
+  background-repeat: no-repeat;
+  @include background-size(ceil(image-width(sprite-path($sprites)) / 2) auto);
+  
+  @if $pad > 0 {
+    padding: $pad;
+  }
+
+  //默认样式
+  display:inline-block;
+  vertical-align:middle;
+}

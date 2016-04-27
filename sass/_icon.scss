@@ -1,0 +1,21 @@
+@import "utilities/only-retina-sprites";  // import this once for all sprites
+@import "compass/utilities/sprites";
+
+//set width height
+// $ico-sprite-dimensions:true;
+
+// @import "ico/*.png";
+
+// @include all-ico-sprites();
+
+$sprites: sprite-map("ui/*.png", $spacing: 20px);              // import 1x sprites from buttons subfolder 
+
+
+// .subject-type-yes {
+// 	@include retina-sprite(yes);
+// }
+
+.ui-ico1 {
+	@include retina-sprite(ico1);
+}
+
